@@ -1,0 +1,22 @@
+@import "../../Style.scss";
+
+.ContainerText {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $NBColor;
+  h1 {
+    display: flex;
+    justify-content: center;
+  }
+  p {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.FiltresBarH {
+  height: 500px;
+}

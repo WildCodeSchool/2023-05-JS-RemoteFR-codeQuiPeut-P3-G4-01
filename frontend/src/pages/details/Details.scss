@@ -2,12 +2,13 @@
 
 .Details {
   background-color: $backColor;
+  padding-top: 30px;
 
   .DetailCardID {
     background-color: $NBColor;
     height: 70vh;
     width: 850px;
-    margin-bottom: 50px;
+
     display: flex;
     // flex-wrap: wrap;
     margin-left: auto;
@@ -15,11 +16,12 @@
     border: black solid 0px;
     box-shadow: 8px 7px 0px 0px rgba(0, 0, 0, 0.5);
     padding: 4px 0 0 4px;
+
     position: relative;
 
     .leftContainerD {
       width: 50%;
-      padding-top: 10px;
+      // padding-top: 10px;
 
       img {
         width: 450px;
@@ -80,21 +82,22 @@
         font-size: 20px;
         font-weight: bold;
       }
-
-      .panierD {
-        width: 200px;
+      .buttonPurple {
         height: 30px;
-        font-size: 15px;
-        background-color: rgb(77, 16, 77);
+        width: 200px;
+        background-color: #401f83;
+        display: flex;
+        justify-content: center;
         font-weight: bold;
-        color: rgb(233, 224, 224);
-        padding-top: 3px;
+        font-size: 15px;
+        color: whitesmoke;
+        padding-top: 5px;
         border: black 2px solid;
         border-radius: 20px;
         margin-bottom: 20px;
-        cursor: pointer;
       }
     }
+
     @media only screen and (max-width: 768px) {
       flex-direction: column;
       align-items: center;
@@ -130,21 +133,21 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
+    margin-top: 40px;
     gap: 40px;
-
-    .buttonPanierD {
-      height: 30px;
-      width: 200px;
-      background-color: $yellow;
-      display: flex;
-      justify-content: center;
-      font-weight: bold;
-      color: black;
-      padding-top: 5px;
-      border: black 2px solid;
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
   }
+}
+.buttonYellow {
+  height: 30px;
+  width: 200px;
+  background-color: $yellow;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  color: black;
+  padding-top: 5px;
+  border: black 2px solid;
+  border-radius: 20px;
+  margin-top: 20px;
 }

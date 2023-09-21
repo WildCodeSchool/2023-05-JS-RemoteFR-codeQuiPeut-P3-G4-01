@@ -26,12 +26,12 @@ function FiltresBar() {
     let filtered = products
     if (selectedUnivers !== "all") {
       filtered = filtered.filter(
-        (product) => product.univer_id.toString() === selectedUnivers
+        (product) => product.univerId.toString() === selectedUnivers
       )
     }
     if (selectedTypes !== "all") {
       filtered = filtered.filter(
-        (product) => product.type_id.toString() === selectedTypes
+        (product) => product.typesId.toString() === selectedTypes
       )
     }
     if (sortOrder === "Prix croissant") {
@@ -56,9 +56,7 @@ function FiltresBar() {
           setSortOrder={setSortOrder}
         />
       </div>
-      <div className="proposeCreation">
-        <p>Proposez vos créations !</p>
-      </div>
+      <div className="proposeCreation"></div>
       <ProductsList products={filteredProducts()} />
     </div>
   )

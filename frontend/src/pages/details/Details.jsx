@@ -9,7 +9,7 @@ function Details() {
   const [detail, setDetail] = useState([])
   const [quantity, setQuantity] = useState(1)
   const [total, setTotal] = useState(0)
-  const fetchBasketItems = useContext(BasketContext)
+  const { triggerBasketChange } = useContext(BasketContext)
 
   useEffect(() => {
     axios
@@ -54,7 +54,7 @@ function Details() {
       )
       .then((response) => {
         alert("Le produit a été ajouté au panier")
-        fetchBasketItems()
+        triggerBasketChange()
       })
   }
 

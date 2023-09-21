@@ -20,16 +20,19 @@ router.post("/products", productsControllers.add)
 // router.delete("/products/:id", productsControllers.destroy)
 
 router.get("/univers", universControllers.browse)
+router.post("/univers")
 
 router.get("/types", typesControllers.browse)
 
 router.get("/basket", basketControllers.browse)
 router.post("/basket", verifyToken, basketControllers.add)
 router.put("/basket/:id", basketControllers.edit)
+router.delete("/basket/all", basketControllers.deleteAll)
 router.delete("/basket/:id", basketControllers.destroy)
 
-// router.get("/orders", ordersControllers.browse)
-router.post("/orders", ordersControllers.add)
+router.get("/orders", ordersControllers.browse)
+router.post("/orders", verifyToken, ordersControllers.add)
+
 router.get("/latestBillNumber", ordersControllers.newBillNumber)
 
 router.get("/users", usersControllers.browse)

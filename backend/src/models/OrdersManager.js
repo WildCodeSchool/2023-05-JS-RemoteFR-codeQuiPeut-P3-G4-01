@@ -11,7 +11,17 @@ class OrdersManager extends AbstractManager {
     )
   }
 
+  findOrdersWithName() {
+    return this.database.query(
+      `SELECT orders.*, products.name, users.firstname
+      FROM ${this.table}
+      JOIN products ON orders.productsId = products.id
+      JOIN users ON users.usersId = users.usersId;`
+    )
+  }
+
   insert(orders) {
+    // console.log("test04", orders)
     // Si 'orders' n'est pas un tableau, convertir en tableau
     if (!Array.isArray(orders)) {
       orders = [orders]
@@ -29,9 +39,14 @@ class OrdersManager extends AbstractManager {
       order.total,
       order.date,
     ])
+    // console.log("test05",values)
     return new Promise((resolve, reject) => {
       this.database.query(sql, [values], (err, results) => {
-        if (err) reject(err)
+        if (err) {
+          // console.log("test07", err)
+          reject(err)
+        }
+        // console.log("test06", results)
         resolve(results)
       })
     })

@@ -28,6 +28,21 @@ button {
   margin: 0;
 }
 
+.buttonPurple {
+  height: 30px;
+  width: 200px;
+  background-color: #401f83;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 15px;
+  color: whitesmoke;
+  padding-top: 5px;
+  border: black 2px solid;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
 h1 {
   color: $purple;
 }

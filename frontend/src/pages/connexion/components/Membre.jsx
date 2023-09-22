@@ -1,11 +1,12 @@
 import { useState } from "react"
-
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import "./Membre.scss"
 
 function Membre({ switchView, setUser }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const navigate = useNavigate()
 
   const handleClick = () => {
     axios
@@ -15,7 +16,8 @@ function Membre({ switchView, setUser }) {
         localStorage.setItem("usersId", res.data.user.usersId)
         setUser(res.data.user)
         console.info(res.data)
-        alert("vous etes connecte")
+        // alert("vous etes connecte")
+        navigate("/")
       })
   }
 

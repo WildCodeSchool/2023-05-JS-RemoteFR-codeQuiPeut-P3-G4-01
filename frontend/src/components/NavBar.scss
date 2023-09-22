@@ -14,26 +14,28 @@
     .rightItems {
       display: flex;
       align-items: center;
-      gap: 5%; // changed to percentage for responsiveness
+      gap: 15%; // changed to percentage for responsiveness
     }
 
     .searchItem {
-      margin-right: 2%; // changed to percentage for responsiveness
+      margin-right: 5%; // changed to percentage for responsiveness
     }
 
     .logoNB {
-      max-width: 70%;
+      max-width: 50%;
       min-width: 50px;
+      margin-right: 150px;
     }
 
     .searchContainer {
       display: flex;
       align-items: center;
+      margin-right: 100px;
     }
 
     input {
       height: 2em; // using em for responsiveness
-      width: 50%; // changed to percentage for responsiveness
+      width: 100%; // changed to percentage for responsiveness
     }
   }
 }

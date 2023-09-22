@@ -25,6 +25,9 @@ function NavBar() {
     <nav className="NavBar">
       <ul>
         <div className="leftItems">
+          <Link to="administrator">
+            <button>Administrateur</button>
+          </Link>
           <li className="searchItem">
             <div className="searchContainer">
               <img className="loupeNB" src={loupe} alt="loupe" />

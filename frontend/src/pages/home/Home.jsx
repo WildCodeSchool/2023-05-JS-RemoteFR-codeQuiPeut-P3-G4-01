@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import FiltresBar from "./components/filtres_bar/FiltresBar"
 import hydreHome from "../../assets/hydreHome.png"
-// import smiley from "../../assets/smiley.png"
+import smiley from "../../assets/smiley.png"
 import "./Home.scss"
 
 function Home({ user }) {
@@ -15,10 +15,11 @@ function Home({ user }) {
         />
         <div className="ContainerText">
           <div className="bienvenu">
-            <h1>
-              {user && `Bienvenu, ${user.firstName}`} Vivez votre propre
-              aventure avec ALTERWORLD !{/* <img src={smiley} alt="" /> */}
-            </h1>
+            <p>
+              {user && `Bienvenu, ${user.firstName}`}{" "}
+              {user && <img src={smiley} alt="" />} Vivez votre propre aventure
+              avec ALTERWORLD !
+            </p>
             <p className="textHome">
               Enfin une boutique où les fans de RPG peuvent accéder à du contenu
               de qualité et proposer leurs créations. dans tous les univers

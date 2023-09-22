@@ -104,7 +104,7 @@ function Order({ users, user }) {
       <div className="Merci">
         {showMessage && (
           <p>
-            {user && `Merci, ${user.firstName} `} <img src={smiley} alt="" />à
+            {user && `Merci, ${user.firstName} `} <img src={smiley} alt="" /> à
             bientot pour de nouvelles aventures.
           </p>
         )}

@@ -79,9 +79,7 @@ function Details() {
           <button className="buttonPurple">Acheter maintenant</button>
         </div>
       </div>
-      <div className="buttonsD">
-        <button className="buttonYellow">Revenir à la selection</button>
-      </div>
+      <div className="buttonsD"></div>
     </div>
   )
 }

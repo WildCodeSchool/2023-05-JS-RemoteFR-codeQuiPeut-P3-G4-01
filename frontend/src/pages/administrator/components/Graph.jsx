@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import BarChart from "./BarChart"
 
 function Graph({ orders }) {
@@ -16,16 +16,17 @@ function Graph({ orders }) {
   })
 
   function aggregateData(data) {
-    const aggregated = {}
-
-    data.forEach((order) => {
-      const productName = order.name
-      if (aggregated[productName]) {
-        aggregated[productName] += order.quantity
+    const aggregated = data.reduce((acc, order) => {
+      console.log(acc)
+      // acc is accumulator, the aggregated object
+      const productsName = order.name
+      if (acc[productsName]) {
+        acc[productsName] += order.quantity // Sum up the quantities if the user exists
       } else {
-        aggregated[productName] = order.quantity
+        acc[productsName] = order.quantity // Initialize the quantity if the user does not exist
       }
-    })
+      return acc
+    }, {})
 
     const productNames = Object.keys(aggregated)
     const quantities = Object.values(aggregated)

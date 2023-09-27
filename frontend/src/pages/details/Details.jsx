@@ -72,7 +72,7 @@ function Details() {
             <p>{quantity}</p>
             <button onClick={increaseQuantity}>+</button>
           </div>
-          <p>Total : {total} €</p>
+          <p>Total : {total.toFixed(2)} €</p>
           <button className="buttonPurple" onClick={addToBasket}>
             Ajouter au panier
           </button>

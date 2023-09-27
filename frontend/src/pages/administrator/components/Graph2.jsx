@@ -16,16 +16,16 @@ function Graph2({ orders }) {
   })
 
   function aggregateData(data) {
-    const aggregated = {}
-
-    data.forEach((order) => {
+    const aggregated = data.reduce((acc, order) => {
+      // acc is accumulator, the aggregated object
       const usersName = order.firstname
-      if (aggregated[usersName]) {
-        aggregated[usersName] += order.quantity // Sum up the quantities if the user exists
+      if (acc[usersName]) {
+        acc[usersName] += order.quantity // Sum up the quantities if the user exists
       } else {
-        aggregated[usersName] = order.quantity // Initialize the quantity if the user does not exist
+        acc[usersName] = order.quantity // Initialize the quantity if the user does not exist
       }
-    })
+      return acc
+    }, {})
 
     const usersNames = Object.keys(aggregated)
     const quantities = Object.values(aggregated)

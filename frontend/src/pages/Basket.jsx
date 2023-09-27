@@ -78,6 +78,7 @@ function Basket() {
         <div className="countainerBasket">
           <div className="LeftColumnB">
             {basketItems.map((item, index) => {
+              const Total = (item.quantity * item.price).toFixed(2)
               return (
                 <div className="BasketItems" key={index}>
                   <button
@@ -97,7 +98,7 @@ function Basket() {
                       <p>{item.quantity}</p>
                       <button onClick={() => increaseQuantity(index)}>+</button>
                     </div>
-                    <p>Price: {item.quantity * item.price} €</p>
+                    <p>Price: {Total} €</p>
                   </div>
                 </div>
               )

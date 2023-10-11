@@ -1,8 +1,8 @@
 const models = require("../models")
 
 const browse = (req, res) => {
-  models.item
-    .findAll()
+  models.basket
+    .findBasketWithProducts()
     .then(([rows]) => {
       res.send(rows)
     })
@@ -13,7 +13,7 @@ const browse = (req, res) => {
 }
 
 const read = (req, res) => {
-  models.item
+  models.basket
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -28,15 +28,26 @@ const read = (req, res) => {
     })
 }
 
+const add = (req, res) => {
+  // console.log("token", res.body)
+  const basket = req.body
+  models.basket
+    .insert(basket)
+    .then(([result]) => {
+      res.json(result.insertId)
+    })
+    .catch((err) => {
+      console.error(err)
+      res.sendStatus(500)
+    })
+}
+
 const edit = (req, res) => {
-  const item = req.body
-
-  // TODO validations (length, format...)
-
-  item.id = parseInt(req.params.id, 10)
-
-  models.item
-    .update(item)
+  // console.log("Request Body:", req.body)
+  const basket = req.body
+  basket.id = parseInt(req.params.id)
+  models.basket
+    .update(basket)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404)
@@ -50,15 +61,15 @@ const edit = (req, res) => {
     })
 }
 
-const add = (req, res) => {
-  const item = req.body
-
-  // TODO validations (length, format...)
-
-  models.item
-    .insert(item)
+const destroy = (req, res) => {
+  models.basket
+    .delete(req.params.id)
     .then(([result]) => {
-      res.location(`/items/${result.insertId}`).sendStatus(201)
+      if (result.affectedRows === 0) {
+        res.sendStatus(404)
+      } else {
+        res.sendStatus(204)
+      }
     })
     .catch((err) => {
       console.error(err)
@@ -66,9 +77,10 @@ const add = (req, res) => {
     })
 }
 
-const destroy = (req, res) => {
-  models.item
-    .delete(req.params.id)
+const deleteAll = (req, res) => {
+  const usersId = req.query.usersId
+  models.basket
+    .deleteAll(usersId)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404)
@@ -85,7 +97,8 @@ const destroy = (req, res) => {
 module.exports = {
   browse,
   read,
-  edit,
   add,
+  edit,
   destroy,
+  deleteAll,
 }

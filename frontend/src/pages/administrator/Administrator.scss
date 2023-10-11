@@ -1,0 +1,33 @@
+@import "../../Style.scss";
+
+.Administrator {
+  height: 150vh;
+  width: 100%;
+  background-color: whitesmoke;
+  padding-left: 20px;
+  .updateData {
+    display: flex;
+    gap: 50px;
+    padding-top: 20px;
+  }
+  .graphHistory {
+    flex-direction: row;
+  }
+
+  .GraphA {
+    width: 100%;
+    padding-top: 50px;
+    display: flex;
+    h1 {
+      font-size: 25px;
+    }
+    .BarChart {
+      height: auto;
+      width: 50%;
+    }
+  }
+
+  .ListeFactures {
+    margin-left: 30px;
+  }
+}
